@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    image: mongo:8
+    container_name: replate-mongodb
+    restart: unless-stopped
+
+    ports:
+      - "27018:27017"
+
+    environment:
+      MONGO_INITDB_DATABASE: replate
+
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
